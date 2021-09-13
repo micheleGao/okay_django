@@ -1,0 +1,1 @@
+web: gunicorn okay_django.wsgi
