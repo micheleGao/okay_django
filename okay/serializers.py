@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework.fields import ReadOnlyField
 from .models import Artist
 from .models import Photo
-from .models import Review
+# from .models import Review
 
 
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
@@ -28,19 +28,19 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
         model = Photo
         fields = ('id','artist','artist_id', 'title', 'album')
 
-class ReviewSerializer(serializers.HyperlinkedModelSerializer):
-    artist = serializers.HyperlinkedRelatedField(
-        view_name='artist_detail', read_only=True)
+# class ReviewSerializer(serializers.HyperlinkedModelSerializer):
+#     artist = serializers.HyperlinkedRelatedField(
+#         view_name='artist_detail', read_only=True)
 
-    artist_id = serializers.PrimaryKeyRelatedField(
-        queryset=Artist.objects.all(), source='artist')
+#     artist_id = serializers.PrimaryKeyRelatedField(
+#         queryset=Artist.objects.all(), source='artist')
 
-    owner = serializers.ReadOnlyField(source='owner.username')
+#     owner = serializers.ReadOnlyField(source='owner.username')
 
-    class Meta:
-        model = Review
-        fields = ('id', 'artist', 'title','artist_id',
-                  'body', 'created', 'owner')
+#     class Meta:
+#         model = Review
+#         fields = ('id', 'artist', 'title','artist_id',
+#                   'body', 'created', 'owner')
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     # photo = serializers.HyperlinkedRelatedField(

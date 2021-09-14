@@ -21,15 +21,15 @@ class Photo(models.Model):
     def __str__(self):
       return self.title
 
-class Review(models.Model):
-    artist = models.ForeignKey(
-        Artist, on_delete=models.CASCADE, related_name='reviews')
-    title = models.CharField(max_length=100)
-    body = models.TextField()
-    # author= models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True)
-    # owner = models.ForeignKey(
-    #     'owner.username', related_name='reviews', on_delete=models.CASCADE)
+# class Review(models.Model):
+#     artist = models.ForeignKey(
+#         Artist, on_delete=models.CASCADE, related_name='reviews')
+#     title = models.CharField(max_length=100)
+#     body = models.TextField()
+#     # author= models.CharField(max_length=100)
+#     created = models.DateTimeField(auto_now_add=True)
+#     # owner = models.ForeignKey(
+#     #     'owner.username', related_name='reviews', on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
