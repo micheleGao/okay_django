@@ -10,7 +10,7 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
         read_only= True,
     )
     artist_id = serializers.PrimaryKeyRelatedField(
-        queryset= Artist.objects.all(),
+        # queryset= Artist.objects.all(),
         source = 'artist'
     )
     owner = serializers.ReadOnlyField(source='owner.username')
