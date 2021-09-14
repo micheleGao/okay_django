@@ -33,4 +33,4 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     artist_url=serializers.ModelSerializer.serializer_url_field(view_name='artist_detail')
     class Meta:
        model = Artist
-       fields = ('id', 'photo_url','artist_url', 'nationality', 'name','photos')
+       fields = ('id', 'photo_url','artist_url', 'nationality', 'name','photo')
