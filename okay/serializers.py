@@ -22,9 +22,10 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     photo = serializers.HyperlinkedRelatedField(
+        queryset= Photo.objects.all(),
         view_name='photo_detail',
         many=True,
-        # read_only=True
+        read_only=True
     )
     class Meta:
        model = Artist
