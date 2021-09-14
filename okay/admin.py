@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Artist
 from .models import Photo
-from .models import Review
+# from .models import Review
 
 
 admin.site.register(Artist)
