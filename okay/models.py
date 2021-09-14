@@ -28,8 +28,8 @@ class Review(models.Model):
     body = models.TextField()
     # author= models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True)
-    owner = models.ForeignKey(
-        'owner.username', related_name='reviews', on_delete=models.CASCADE)
+    # owner = models.ForeignKey(
+    #     'owner.username', related_name='reviews', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
