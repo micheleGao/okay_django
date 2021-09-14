@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .serializers import ArtistSerializer, PhotoSerializer, ReviewSerializer
-from .models import Artist, Photo, Review
+from .serializers import ArtistSerializer, PhotoSerializer
+from .models import Artist, Photo
 from rest_framework import permissions
 from okay.permissions import IsOwnerOrReadOnly
 
@@ -21,15 +21,15 @@ class PhotoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Photo.objects.all()
     serializer_class =PhotoSerializer
 
-class ReviewList(generics.ListCreateAPIView):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+# class ReviewList(generics.ListCreateAPIView):
+#     queryset = Review.objects.all()
+#     serializer_class = ReviewSerializer
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+#     def perform_create(self, serializer):
+#         serializer.save(owner=self.request.user)
 
-class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Review.objects.all()
-    serializer_class = ReviewSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+# class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Review.objects.all()
+#     serializer_class = ReviewSerializer
+#     permission_classes = [IsOwnerOrReadOnly]
 
