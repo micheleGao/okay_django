@@ -26,7 +26,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     #     many=True,
     #     read_only=True
     # )
-    Photo= PhotoSerializer(
+    photo= PhotoSerializer(
         many= True,
         read_only = True
     )
