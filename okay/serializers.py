@@ -16,8 +16,8 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
         queryset= Artist.objects.all(),
         source = 'artist'
     )
-    owner = serializers.HyperlinkedRelatedField(
-        view_name='artist_detail',
+    owner = serializers.PrimaryKeyRelatedField(
+        # view_name='artist_detail',
         queryset=Artist.objects.all(),
         source='owner.username'
     )
