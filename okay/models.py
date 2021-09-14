@@ -10,7 +10,7 @@ class Artist(models.Model):
         return self.name
 
 class Photo(models.Model):
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='photo')
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='artist')
     title = models.CharField(max_length=100, default='no photo title')
     album = models.CharField(max_length=100, default='no album title')
     preview_url = models.CharField(max_length=200, null=True)
