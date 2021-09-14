@@ -16,16 +16,16 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
         queryset= Artist.objects.all(),
         source = 'artist'
     )
-    # owner = serializers.PrimaryKeyRelatedField(
-    #     # view_name='artist_detail',
-    #     queryset=Artist.objects.all(),
-    #     source='owner.username'
-    # )
+    owner = serializers.PrimaryKeyRelatedField(
+        view_name='photo_detail',
+        queryset=Artist.objects.all(),
+        source='owner.username'
+    )
     # add owner back into the fields when commenting it back in.
 
     class Meta:
         model = Photo
-        fields = ('id','artist','artist_id', 'title', 'album',)
+        fields = ('id','artist','artist_id', 'title', 'album','owner')
 
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
