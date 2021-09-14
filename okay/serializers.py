@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from rest_framework import serializers
 from rest_framework.fields import ReadOnlyField
 from .models import Artist
@@ -17,6 +18,7 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     )
     owner = serializers.HyperlinkedRelatedField(
         view_name='artist_detail',
+        queryset=Artist.objects.all(),
         source='owner.username'
     )
 
