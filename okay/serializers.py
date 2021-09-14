@@ -24,7 +24,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     photo = serializers.HyperlinkedRelatedField(
         view_name='photo_detail',
         many=True,
-        read_only=True
+        # read_only=True
     )
     class Meta:
        model = Artist
