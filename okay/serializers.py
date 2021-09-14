@@ -3,6 +3,7 @@ from rest_framework import serializers
 from rest_framework.fields import ReadOnlyField
 from .models import Artist
 from .models import Photo
+from .models import Review
 
 
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
@@ -26,7 +27,7 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Photo
         fields = ('id','artist','artist_id', 'title', 'album')
-        
+
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
     artist = serializers.HyperlinkedRelatedField(
         view_name='artist_detail', read_only=True)
@@ -58,4 +59,4 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     artist_url=serializers.ModelSerializer.serializer_url_field(view_name='artist_detail')
     class Meta:
        model = Artist
-       fields = ('id', 'photo_url','artist_url', 'nationality', 'name','photo')
+       fields = ('id', 'photo_url','artist_url', 'nationality', 'name','photo', 'reviews')
