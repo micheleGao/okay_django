@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Artist(models.Model):
     name = models.CharField(max_length=100)
@@ -13,7 +14,7 @@ class Photo(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='photo')
     title = models.CharField(max_length=100, default='no photo title')
     album = models.CharField(max_length=100, default='no album title')
-    preview_url = models.CharField(max_length=200, null=True)
+    # preview_url = models.CharField(max_length=200, null=True)
     # owner = models.ForeignKey(
     #     'users.User', related_name='', on_delete=models.CASCADE)
 
