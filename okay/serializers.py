@@ -3,6 +3,7 @@ from rest_framework.fields import ReadOnlyField
 from .models import Artist
 from .models import Photo
 
+
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     artist = serializers.HyperlinkedRelatedField(
         view_name='artist_detail',
@@ -16,7 +17,6 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     )
     owner = serializers.HyperlinkedRelatedField(
         view_name='artist_detail',
-        queryset=Photo.objects.all(),
         source='owner.username'
     )
 
