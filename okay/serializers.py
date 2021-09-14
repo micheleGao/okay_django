@@ -17,7 +17,7 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Photo
-        fields = ('id','artist','artist_id', 'title', 'album', 'owner')
+        fields = ('id','artist','artist_id', 'title', 'album', 'owner',)
 
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
@@ -28,4 +28,4 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     )
     class Meta:
        model = Artist
-       fields = ('id', 'photo_url','nationality', 'name')
+       fields = ('id', 'photo_url','nationality', 'name', 'photo')
