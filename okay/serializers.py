@@ -52,11 +52,11 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
         many= True,
         read_only = True
     )
-    reviews=ReviewSerializer(
-        many=True, 
-        read_only =True
-    )
+    # reviews=ReviewSerializer(
+    #     many=True, 
+    #     read_only =True
+    # )
     artist_url=serializers.ModelSerializer.serializer_url_field(view_name='artist_detail')
     class Meta:
        model = Artist
-       fields = ('id', 'photo_url','artist_url', 'nationality', 'name','photo', 'reviews')
+       fields = ('id', 'photo_url','artist_url', 'nationality', 'name','photo')
