@@ -11,13 +11,13 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     )
     artist_id = serializers.PrimaryKeyRelatedField(
         queryset= Artist.objects.all(),
-        source = 'artist'
+        # source = 'artist'
     )
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Photo
-        fields = ('id', 'artist_id', 'title', 'album', 'owner')
+        fields = ('id','artist_id', 'title', 'album', 'owner')
 
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
@@ -28,4 +28,4 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     )
     class Meta:
        model = Artist
-       fields = ('id', 'photo_url', 'nationality', 'name', 'photo')
+       fields = ('id', 'artist', 'photo_url', 'nationality', 'name', 'photo')
