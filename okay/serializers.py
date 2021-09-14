@@ -28,7 +28,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     # )
     photo= PhotoSerializer(
         many= True,
-        read_only = True
+        # read_only = True
     )
     artist_url=serializers.ModelSerializer.serializer_url_field(view_name='artist_detail')
     class Meta:
