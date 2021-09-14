@@ -14,7 +14,10 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
         queryset= Artist.objects.all(),
         source = 'artist'
     )
-    owner = serializers.HyperlinkedRelatedField(source='owner.username')
+    owner = serializers.HyperlinkedRelatedField(
+        view_name='artist_detail',
+        source='owner.username'
+    )
 
     class Meta:
         model = Photo
