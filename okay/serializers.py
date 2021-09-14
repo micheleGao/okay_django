@@ -6,11 +6,11 @@ from .models import Photo
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     artist = serializers.HyperlinkedRelatedField(
         view_name='artist_detail',
-        # queryset=Photo.objects.all(),
-        read_only= True,
+        queryset=Photo.objects.all(),
+        # read_only= True,
     )
     artist_id = serializers.PrimaryKeyRelatedField(
-        # queryset= Artist.objects.all(),
+        queryset= Artist.objects.all(),
         source = 'artist'
     )
     owner = serializers.ReadOnlyField(source='owner.username')
@@ -24,7 +24,7 @@ class ArtistSerializer(serializers.HyperlinkedModelSerializer):
     photo = serializers.HyperlinkedRelatedField(
         view_name='photo_detail',
         many=True,
-        read_only=True
+        # read_only=True
     )
     class Meta:
        model = Artist
