@@ -21,11 +21,16 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
-    photo = serializers.HyperlinkedRelatedField(
-        view_name='photo_detail',
-        many=True,
-        read_only=True
+    # photo = serializers.HyperlinkedRelatedField(
+    #     view_name='photo_detail',
+    #     many=True,
+    #     read_only=True
+    # )
+    Photo= PhotoSerializer(
+        many= True,
+        read_only = True
     )
+    artist_url=serializers.ModelSerializer.serializer_url_field(view_name='artist_detail')
     class Meta:
        model = Artist
-       fields = ('id', 'photo_url','nationality', 'name', 'photo')
+       fields = ('id', 'photo_url','artist_url', 'nationality', 'name','photos')
